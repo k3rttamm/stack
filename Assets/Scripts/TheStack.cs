@@ -38,6 +38,14 @@ public class TheStack : MonoBehaviour
         stackIndex = transform.childCount - 1;
     }
 
+    private void CreateRubble(Vector3 pos, Vector3 scale)
+    {
+        GameObject go = GameObject.CreatePrimitive(PrimitiveType.Cube);
+        go.transform.localPosition = pos;
+        go.transform.localScale = scale;
+        go.AddComponent<Rigidbody>();
+    }
+
     private void Update()
     {
         if (Input.GetMouseButtonDown(0))
@@ -106,6 +114,15 @@ public class TheStack : MonoBehaviour
 
                 float middle = lastTilePosition.x + t.localPosition.x / 2;
                 t.localScale = new Vector3(stackBounds.x, 1, stackBounds.y);
+                CreateRubble
+                (
+                    new Vector3 ((t.position.x > 0)
+                        ? t.position.x + (t.localScale.x /2)
+                        : t.position.x - (t.localScale.x /2)
+                        , t.position.y
+                        , t.position.z),
+                    new Vector3 (Mathf.Abs (deltaX), 1, t.localScale.z)
+                );
                 t.localPosition = new Vector3(middle - (lastTilePosition.x / 2), scoreCount, lastTilePosition.z);
             }
             else
@@ -113,6 +130,10 @@ public class TheStack : MonoBehaviour
                 if (combo > COMBO_START_GAIN)
                 {
                     stackBounds.x += STACK_BOUNDS_GAIN;
+                    if (stackBounds.x > BOUNDS_SIZE)
+                    {
+                        stackBounds.x = BOUNDS_SIZE;
+                    }
                     float middle = lastTilePosition.x + t.localPosition.x / 2;
                     t.localScale = new Vector3(stackBounds.x, 1, stackBounds.y);
                     t.localPosition = new Vector3(middle - (lastTilePosition.x / 2), scoreCount, lastTilePosition.z);
@@ -136,12 +157,25 @@ public class TheStack : MonoBehaviour
 
                 float middle = lastTilePosition.z + t.localPosition.z / 2;
                 t.localScale = new Vector3(stackBounds.x, 1, stackBounds.y);
+                CreateRubble
+                (
+                    new Vector3(t.position.x
+                        , t.position.y
+                        , (t.position.z > 0)
+                        ? t.position.z + (t.localScale.z / 2)
+                        : t.position.z - (t.localScale.z / 2)),
+                    new Vector3(Mathf.Abs(deltaZ), 1, t.localScale.z)
+                );
                 t.localPosition = new Vector3(lastTilePosition.x, scoreCount, middle - (lastTilePosition.z / 2));
             }
             else
             {
                 if (combo > COMBO_START_GAIN)
                 {
+                    if (stackBounds.y > BOUNDS_SIZE)
+                    {
+                        stackBounds.y = BOUNDS_SIZE;
+                    }
                     stackBounds.y += STACK_BOUNDS_GAIN;
                     float middle = lastTilePosition.z + t.localPosition.z / 2;
                     t.localScale = new Vector3(stackBounds.x, 1, stackBounds.y);
