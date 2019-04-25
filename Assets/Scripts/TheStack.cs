@@ -5,6 +5,7 @@ using UnityEngine;
 public class TheStack : MonoBehaviour
 {
     public Color32[] gameColors = new Color32[4];
+    public Material stackMat;
 
     private const float BOUNDS_SIZE = 3.5f;
     private const float STACK_MOVING_SPEED = 5.0f;
@@ -47,6 +48,7 @@ public class TheStack : MonoBehaviour
         go.transform.localScale = scale;
         go.AddComponent<Rigidbody>();
 
+        go.GetComponent<MeshRenderer>().material = stackMat;
         ColorMesh(go.GetComponent<MeshFilter>().mesh);
     }
 
@@ -212,7 +214,7 @@ public class TheStack : MonoBehaviour
         mesh.colors32 = colors;
     }
 
-    private Color32 Lerp4(Color32 a, Color32.b, Color32.c, Color32.d, float t)
+    private Color32 Lerp4(Color32 a, Color32 b, Color32 c, Color32 d, float t)
     {
         if (t < 0.33f)
             return Color.Lerp (a, b, t / 0.33f);
