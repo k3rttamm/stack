@@ -7,6 +7,8 @@ public class TheStack : MonoBehaviour
     private const float BOUNDS_SIZE = 3.5f;
     private const float STACK_MOVING_SPEED = 5.0f;
     private const float ERROR_MARGIN = 0.1f;
+    private const float STACK_BOUNDS_GAIN = 0.25f;
+    private const int COMBO_START_GAIN = 3;
 
     private GameObject[] theStack;
     private Vector2 stackBounds = new Vector2 (BOUNDS_SIZE, BOUNDS_SIZE);
@@ -106,6 +108,18 @@ public class TheStack : MonoBehaviour
                 t.localScale = new Vector3(stackBounds.x, 1, stackBounds.y);
                 t.localPosition = new Vector3(middle - (lastTilePosition.x / 2), scoreCount, lastTilePosition.z);
             }
+            else
+            {
+                if (combo > COMBO_START_GAIN)
+                {
+                    stackBounds.x += STACK_BOUNDS_GAIN;
+                    float middle = lastTilePosition.x + t.localPosition.x / 2;
+                    t.localScale = new Vector3(stackBounds.x, 1, stackBounds.y);
+                    t.localPosition = new Vector3(middle - (lastTilePosition.x / 2), scoreCount, lastTilePosition.z);
+                }
+                combo++;
+                t.localPosition = new Vector3(lastTilePosition.x, scoreCount, lastTilePosition.z);
+            }
         }
         else
         {
@@ -123,6 +137,18 @@ public class TheStack : MonoBehaviour
                 float middle = lastTilePosition.z + t.localPosition.z / 2;
                 t.localScale = new Vector3(stackBounds.x, 1, stackBounds.y);
                 t.localPosition = new Vector3(lastTilePosition.x, scoreCount, middle - (lastTilePosition.z / 2));
+            }
+            else
+            {
+                if (combo > COMBO_START_GAIN)
+                {
+                    stackBounds.y += STACK_BOUNDS_GAIN;
+                    float middle = lastTilePosition.z + t.localPosition.z / 2;
+                    t.localScale = new Vector3(stackBounds.x, 1, stackBounds.y);
+                    t.localPosition = new Vector3(lastTilePosition.x, scoreCount, middle - (lastTilePosition.z / 2));
+                }
+                combo++;
+                t.localPosition = new Vector3(lastTilePosition.x, scoreCount, lastTilePosition.z);
             }
         }
 
