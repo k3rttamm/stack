@@ -4,10 +4,17 @@ using UnityEngine;
 
 public class TheStack : MonoBehaviour
 {
+    private const float BOUNDS_SIZE = 3.5f;
+
     private GameObject[] theStack;
 
     private int stackIndex;
     private int scoreCount = 0;
+
+    private float tileTransition = 0.0f;
+    private float tileSpeed = 2.5f;
+
+    private bool isMovingOnX = true;
 
     private void Start()
     {
@@ -24,8 +31,30 @@ public class TheStack : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
-            SpawnTile();
-            scoreCount++;
+            if (PlaceTile())
+            {
+                SpawnTile();
+                scoreCount++;
+            }
+            else
+            {
+                EndGame();
+            }
+        }
+
+        MoveTile();
+    }
+
+    private void MoveTile()
+    {
+        tileTransition += Time.deltaTime * tileSpeed;
+        if (isMovingOnX)
+        {
+            theStack[stackIndex].transform.localPosition = new Vector3(Mathf.Sin(tileTransition) * BOUNDS_SIZE, scoreCount, 0);
+        }
+        else
+        {
+            theStack[stackIndex].transform.localPosition = new Vector3(0, scoreCount, Mathf.Sin(tileTransition) * BOUNDS_SIZE);
         }
     }
 
@@ -38,8 +67,15 @@ public class TheStack : MonoBehaviour
         theStack[stackIndex].transform.localPosition = new Vector3(0, scoreCount, 0);
     }
 
-    private void PlaceTile()
+    private bool PlaceTile()
     {
-        
+        isMovingOnX = !isMovingOnX;
+
+        return true;
+    }
+
+    private void EndGame()
+    {
+
     }
 }
