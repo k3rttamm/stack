@@ -2,12 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class TheStack : MonoBehaviour
 {
     public Text scoreText;
     public Color32[] gameColors = new Color32[4];
     public Material stackMat;
+    public GameObject endPanel;
 
     private const float BOUNDS_SIZE = 3.5f;
     private const float STACK_MOVING_SPEED = 5.0f;
@@ -57,6 +59,9 @@ public class TheStack : MonoBehaviour
 
     private void Update()
     {
+        if (gameOver)
+            return;
+
         if (Input.GetMouseButtonDown(0))
         {
             if (PlaceTile())
@@ -79,9 +84,6 @@ public class TheStack : MonoBehaviour
 
     private void MoveTile()
     {
-        if (gameOver)
-            return;
-
         tileTransition += Time.deltaTime * tileSpeed;
         if (isMovingOnX)
         {
@@ -230,8 +232,17 @@ public class TheStack : MonoBehaviour
 
     private void EndGame()
     {
-        Debug.Log ("Lose");
+        if (PlayerPrefs.GetInt("score") < scoreCount)
+        {
+            PlayerPrefs.SetInt("score", scoreCount);
+        }
         gameOver = true;
+        endPanel.SetActive(true);
         theStack[stackIndex].AddComponent<Rigidbody> ();
+    }
+
+    public void OnButtonClick(string sceneName)
+    {
+        SceneManager.LoadScene(sceneName);
     }
 }
