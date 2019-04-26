@@ -2,7 +2,9 @@
 
 #### Mobiilirakenduste Arendamine 4. Iseseisev Töö - Kert Tamm
 
-Kasutatud Unity versioon: Unity 2019.1.0f2 (64-bit)
+Kasutatud Unity versioon: 
+Unity2018 3.12f1 (64-bit)
+Algselt sai tehtud Unity 2019.1.0f2 (64-bit) versiooniga, kuid läksin hiljem üle vanemale versioonile.
 
 ### Kasutatud allikad: 
 
