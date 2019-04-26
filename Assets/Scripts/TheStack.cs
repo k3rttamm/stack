@@ -18,7 +18,7 @@ public class TheStack : MonoBehaviour
     private const int COMBO_START_GAIN = 3;
 
     private GameObject[] theStack;
-    private Vector2 stackBounds = new Vector2 (BOUNDS_SIZE, BOUNDS_SIZE);
+    private Vector2 stackBounds = new Vector2(BOUNDS_SIZE, BOUNDS_SIZE);
 
     private int stackIndex;
     private int scoreCount = 0;
@@ -39,7 +39,7 @@ public class TheStack : MonoBehaviour
         theStack = new GameObject[transform.childCount];
         for (int i = 0; i < transform.childCount; i++)
         {
-            theStack[i] = transform.GetChild (i).gameObject;
+            theStack[i] = transform.GetChild(i).gameObject;
             ColorMesh(theStack[i].GetComponent<MeshFilter>().mesh);
         }
 
@@ -97,7 +97,7 @@ public class TheStack : MonoBehaviour
 
     private void SpawnTile()
     {
-        lastTilePosition = theStack [stackIndex].transform.localPosition;
+        lastTilePosition = theStack[stackIndex].transform.localPosition;
         stackIndex--;
         if (stackIndex < 0)
             stackIndex = transform.childCount - 1;
@@ -106,7 +106,7 @@ public class TheStack : MonoBehaviour
         theStack[stackIndex].transform.localPosition = new Vector3(0, scoreCount, 0);
         theStack[stackIndex].transform.localScale = new Vector3(stackBounds.x, 1, stackBounds.y);
 
-        ColorMesh(theStack[stackIndex].GetComponent<MeshFilter> ().mesh);
+        ColorMesh(theStack[stackIndex].GetComponent<MeshFilter>().mesh);
     }
 
     private bool PlaceTile()
@@ -130,12 +130,12 @@ public class TheStack : MonoBehaviour
                 t.localScale = new Vector3(stackBounds.x, 1, stackBounds.y);
                 CreateRubble
                 (
-                    new Vector3 ((t.position.x > 0)
-                        ? t.position.x + (t.localScale.x /2)
-                        : t.position.x - (t.localScale.x /2)
+                    new Vector3((t.position.x > 0)
+                        ? t.position.x + (t.localScale.x / 2)
+                        : t.position.x - (t.localScale.x / 2)
                         , t.position.y
                         , t.position.z),
-                    new Vector3 (Mathf.Abs (deltaX), 1, t.localScale.z)
+                    new Vector3(Mathf.Abs(deltaX), 1, t.localScale.z)
                 );
                 t.localPosition = new Vector3(middle - (lastTilePosition.x / 2), scoreCount, lastTilePosition.z);
             }
@@ -215,7 +215,7 @@ public class TheStack : MonoBehaviour
         float f = Mathf.Sin(scoreCount * 0.25f);
 
         for (int i = 0; i < vertices.Length; i++)
-            colors[i] = Lerp4(gameColors[0], gameColors[1], gameColors[2], gameColors[3],f);
+            colors[i] = Lerp4(gameColors[0], gameColors[1], gameColors[2], gameColors[3], f);
 
         mesh.colors32 = colors;
     }
@@ -223,11 +223,11 @@ public class TheStack : MonoBehaviour
     private Color32 Lerp4(Color32 a, Color32 b, Color32 c, Color32 d, float t)
     {
         if (t < 0.33f)
-            return Color.Lerp (a, b, t / 0.33f);
+            return Color.Lerp(a, b, t / 0.33f);
         else if (t < 0.66f)
-            return Color.Lerp (b, c, (t - 0.33f) / 0.33f);
+            return Color.Lerp(b, c, (t - 0.33f) / 0.33f);
         else
-            return Color.Lerp (c, d, (t - 0.66f) / 0.66f);
+            return Color.Lerp(c, d, (t - 0.66f) / 0.66f);
     }
 
     private void EndGame()
@@ -238,7 +238,7 @@ public class TheStack : MonoBehaviour
         }
         gameOver = true;
         endPanel.SetActive(true);
-        theStack[stackIndex].AddComponent<Rigidbody> ();
+        theStack[stackIndex].AddComponent<Rigidbody>();
     }
 
     public void OnButtonClick(string sceneName)
