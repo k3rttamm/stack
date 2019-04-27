@@ -20,7 +20,7 @@ https://youtu.be/I19cC_HcyC0
 Juhend oli päris pikk ja vigu täis, kuna koodi polnud avalikult netis üleval ka, pidin samm sammult selle video juhendi läbi tegema. Aega kulus tohutult palju. Kui video looja tegi vea, tegin ka mina jne. Esialgu tegin Unity 2019 versiooniga, kuid selles oli nii mõningaidki muudatusi võrreldes videos kasutatava 2018 versiooniga ja lõppude lõpuks tegin projekti ümber versioonis 2018. Kuna juhendi looja ise tegi ka seda esmakordselt, siis olid vead arusaadavad, kuid väga raske oli jälgida mida tehti. Mõni koht läks väga aeglaselt tal pusides ja mõnes teises kohas tegi ta asju nii kiiresti, et vaevu olin suuteline nägema, mida täpselt tehti.
 
 ### Kirjeldus muutustest rakenduse terviklikumaks muutmiseks:
-Rakendusel muutsin iseseisvalt graafikat, lisasin effekte ja veidike ka kujundust. Pidin koodis tegema ka mõningaid parandusi seoses versiooni erinevusega.
+Rakendusel muutsin iseseisvalt graafikat, lisasin effekte ja ka kujundust ning apk jaoks vajalikud asjad. Pidin koodis tegema ka mõningaid parandusi seoses versiooni erinevusega.
 
 ### Screenshotid:
 
