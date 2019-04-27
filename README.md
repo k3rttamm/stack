@@ -10,7 +10,7 @@ http://www.filedropper.com/stack
 
 ### Kasutatud Unity versioon: 
 
-Unity2018 3.12f1 (64-bit)
+Unity 2018.3.12f1 (64-bit)
 
 Algselt sai tehtud Unity 2019.1.0f2 (64-bit) versiooniga, kuid läksin hiljem üle vanemale versioonile.
 
@@ -26,4 +26,6 @@ Juhend oli päris pikk ja vigu täis, kuna koodi polnud avalikult netis üleval 
 Rakendusel muutsin iseseisvalt graafikat, lisasin effekte ja ka kujundust ning apk jaoks vajalikud asjad. Pidin koodis tegema ka mõningaid parandusi seoses versiooni erinevusega.
 
 ### Screenshotid:
-
+<img align="left" width="267" height="476" src="screenshot1.png">
+<img align="left" width="267" height="476" src="screenshot2.png">
+<img align="left" width="267" height="476" src="screenshot3.png">
