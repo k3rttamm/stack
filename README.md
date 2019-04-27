@@ -26,6 +26,6 @@ Juhend oli päris pikk ja vigu täis, kuna koodi polnud avalikult netis üleval 
 Rakendusel muutsin iseseisvalt graafikat, lisasin effekte ja ka kujundust ning apk jaoks vajalikud asjad. Pidin koodis tegema ka mõningaid parandusi seoses versiooni erinevusega.
 
 ### Screenshotid:
-<img align="left" width="267" height="476" src="screenshot1.png">
-<img align="left" width="267" height="476" src="screenshot2.png">
-<img align="left" width="267" height="476" src="screenshot3.png">
+<img align="left" width="267" height="476" src="screenshot1.jpg">
+<img align="left" width="267" height="476" src="screenshot2.jpg">
+<img align="left" width="267" height="476" src="screenshot3.jpg">
