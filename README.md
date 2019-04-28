@@ -25,6 +25,9 @@ Juhend oli päris pikk ja vigu täis, kuna koodi polnud avalikult netis üleval 
 ### Kirjeldus muutustest rakenduse terviklikumaks muutmiseks:
 Rakendusel muutsin iseseisvalt graafikat, lisasin effekte ja ka kujundust ning apk jaoks vajalikud asjad. Pidin koodis tegema ka mõningaid parandusi seoses versiooni erinevusega.
 
+### Video:
+https://youtu.be/yciU8Kwei9c
+
 ### Screenshotid:
 <img align="left" width="267" height="476" src="screenshot1.jpg">
 <img align="left" width="267" height="476" src="screenshot2.jpg">
