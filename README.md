@@ -6,7 +6,7 @@
 Mäng on loodud töötamaks eelkõige 1080x1920 (9:16 aspect ratio) resolutsiooniga seadmetel, teiste resolutsioonidega seadmetel võib esineda mõningaid anomaaliaid, kuna ise testisin ainult selle resolutsiooniga. Mängu .apk fail on ka lisatud GitHubi, et saaks kergelt enda seadmes järele proovida.
 
 #### APK faili saab alla laadida ka siit:
-http://www.filedropper.com/stack
+https://filebin.net/1orls7p4q0x37uqu
 
 ### Kasutatud Unity versioon: 
 
